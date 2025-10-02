@@ -118,9 +118,33 @@ INSERT INTO skills (
     goalkeeping_positioning,
     goalkeeping_reflexes,
     goalkeeping_speed,
-    ls, st, rs, lw, lf, cf, rf, rw,
-    lam, cam, ram, lm, lcm, cm, rcm, rm,
-    lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk
+    ls, 
+    st, 
+    rs, 
+    lw, 
+    lf, 
+    cf, 
+    rf, 
+    rw,
+    lam, 
+    cam, 
+    ram, 
+    lm, 
+    lcm, 
+    cm, 
+    rcm, 
+    rm,
+    lwb, 
+    ldm, 
+    cdm, 
+    rdm, 
+    rwb, 
+    lb, 
+    lcb, 
+    cb,
+    rcb, 
+    rb, 
+    gk
 )
 SELECT DISTINCT ON (player_id)
     player_id,
@@ -194,4 +218,5 @@ SELECT DISTINCT ON (player_id)
     CAST(substring(gk::text FROM '^\d+') AS INT)
 FROM staging_fc26
 WHERE player_id IS NOT NULL;
+
 

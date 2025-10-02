@@ -1,0 +1,197 @@
+-- Migrate the data from the original csv into the tables
+copy staging_fc26 FROM 'C:/CSV/FC_2026.csv' DELIMITER ',' CSV HEADER;
+
+
+-- Populate the players table
+INSERT INTO players (
+    player_id,
+    short_name,
+    long_name,
+    dob,
+    age,
+    height_cm,
+    weight_kg,
+    player_positions,
+    overall,
+    potential,
+    preferred_foot,
+    weak_foot,
+    skill_moves,
+    international_reputation,
+    club_team_id,
+    nationality_id
+)
+SELECT DISTINCT ON (player_id)
+    player_id,
+    short_name,
+    long_name,
+    dob,
+    age,
+    height_cm,
+    weight_kg,
+    player_positions,
+    overall,
+    potential,
+    preferred_foot,
+    weak_foot,
+    skill_moves,
+    international_reputation,
+    club_team_id,
+    nationality_id
+FROM 
+    staging_fc26
+WHERE player_id IS NOT NULL;
+
+-- Populate the clubs table
+INSERT INTO clubs (
+    club_team_id,
+    club_name,
+    league_id,
+    league_name,
+    league_level
+)
+SELECT DISTINCT ON (club_team_id)
+    club_team_id,
+    club_name,
+    league_id,
+    league_name,
+    league_level
+FROM
+    staging_fc26
+WHERE club_team_id IS NOT NULL;
+
+-- Polulate nationalities table
+INSERT INTO nationalities (
+    nationality_id,
+    nationality_name,
+    nation_team_id
+)
+SELECT DISTINCT ON (nationality_id)
+    nationality_id,
+    nationality_name,
+    nation_team_id
+FROM 
+    staging_fc26
+WHERE nationality_id IS NOT NULL;
+
+-- Populate skills table with cleaned numeric values
+INSERT INTO skills (
+    player_id,
+    pace,
+    shooting,
+    passing,
+    dribbling,
+    defending,
+    physic,
+    attacking_crossing,
+    attacking_finishing,
+    attacking_heading_accuracy,
+    attacking_short_passing,
+    attacking_volleys,
+    skill_dribbling,
+    skill_curve,
+    skill_fk_accuracy,
+    skill_long_passing,
+    skill_ball_control,
+    movement_acceleration,
+    movement_sprint_speed,
+    movement_agility,
+    movement_reactions,
+    movement_balance,
+    power_shot_power,
+    power_jumping,
+    power_stamina,
+    power_strength,
+    power_long_shots,
+    mentality_aggression,
+    mentality_interceptions,
+    mentality_positioning,
+    mentality_vision,
+    mentality_penalties,
+    mentality_composure,
+    defending_marking_awareness,
+    defending_standing_tackle,
+    defending_sliding_tackle,
+    goalkeeping_diving,
+    goalkeeping_handling,
+    goalkeeping_kicking,
+    goalkeeping_positioning,
+    goalkeeping_reflexes,
+    goalkeeping_speed,
+    ls, st, rs, lw, lf, cf, rf, rw,
+    lam, cam, ram, lm, lcm, cm, rcm, rm,
+    lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk
+)
+SELECT DISTINCT ON (player_id)
+    player_id,
+    CAST(substring(pace::text FROM '^\d+') AS INT),
+    CAST(substring(shooting::text FROM '^\d+') AS INT),
+    CAST(substring(passing::text FROM '^\d+') AS INT),
+    CAST(substring(dribbling::text FROM '^\d+') AS INT),
+    CAST(substring(defending::text FROM '^\d+') AS INT),
+    CAST(substring(physic::text FROM '^\d+') AS INT),
+    CAST(substring(attacking_crossing::text FROM '^\d+') AS INT),
+    CAST(substring(attacking_finishing::text FROM '^\d+') AS INT),
+    CAST(substring(attacking_heading_accuracy::text FROM '^\d+') AS INT),
+    CAST(substring(attacking_short_passing::text FROM '^\d+') AS INT),
+    CAST(substring(attacking_volleys::text FROM '^\d+') AS INT),
+    CAST(substring(skill_dribbling::text FROM '^\d+') AS INT),
+    CAST(substring(skill_curve::text FROM '^\d+') AS INT),
+    CAST(substring(skill_fk_accuracy::text FROM '^\d+') AS INT),
+    CAST(substring(skill_long_passing::text FROM '^\d+') AS INT),
+    CAST(substring(skill_ball_control::text FROM '^\d+') AS INT),
+    CAST(substring(movement_acceleration::text FROM '^\d+') AS INT),
+    CAST(substring(movement_sprint_speed::text FROM '^\d+') AS INT),
+    CAST(substring(movement_agility::text FROM '^\d+') AS INT),
+    CAST(substring(movement_reactions::text FROM '^\d+') AS INT),
+    CAST(substring(movement_balance::text FROM '^\d+') AS INT),
+    CAST(substring(power_shot_power::text FROM '^\d+') AS INT),
+    CAST(substring(power_jumping::text FROM '^\d+') AS INT),
+    CAST(substring(power_stamina::text FROM '^\d+') AS INT),
+    CAST(substring(power_strength::text FROM '^\d+') AS INT),
+    CAST(substring(power_long_shots::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_aggression::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_interceptions::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_positioning::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_vision::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_penalties::text FROM '^\d+') AS INT),
+    CAST(substring(mentality_composure::text FROM '^\d+') AS INT),
+    CAST(substring(defending_marking_awareness::text FROM '^\d+') AS INT),
+    CAST(substring(defending_standing_tackle::text FROM '^\d+') AS INT),
+    CAST(substring(defending_sliding_tackle::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_diving::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_handling::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_kicking::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_positioning::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_reflexes::text FROM '^\d+') AS INT),
+    CAST(substring(goalkeeping_speed::text FROM '^\d+') AS INT),
+    CAST(substring(ls::text FROM '^\d+') AS INT),
+    CAST(substring(st::text FROM '^\d+') AS INT),
+    CAST(substring(rs::text FROM '^\d+') AS INT),
+    CAST(substring(lw::text FROM '^\d+') AS INT),
+    CAST(substring(lf::text FROM '^\d+') AS INT),
+    CAST(substring(cf::text FROM '^\d+') AS INT),
+    CAST(substring(rf::text FROM '^\d+') AS INT),
+    CAST(substring(rw::text FROM '^\d+') AS INT),
+    CAST(substring(lam::text FROM '^\d+') AS INT),
+    CAST(substring(cam::text FROM '^\d+') AS INT),
+    CAST(substring(ram::text FROM '^\d+') AS INT),
+    CAST(substring(lm::text FROM '^\d+') AS INT),
+    CAST(substring(lcm::text FROM '^\d+') AS INT),
+    CAST(substring(cm::text FROM '^\d+') AS INT),
+    CAST(substring(rcm::text FROM '^\d+') AS INT),
+    CAST(substring(rm::text FROM '^\d+') AS INT),
+    CAST(substring(lwb::text FROM '^\d+') AS INT),
+    CAST(substring(ldm::text FROM '^\d+') AS INT),
+    CAST(substring(cdm::text FROM '^\d+') AS INT),
+    CAST(substring(rdm::text FROM '^\d+') AS INT),
+    CAST(substring(rwb::text FROM '^\d+') AS INT),
+    CAST(substring(lb::text FROM '^\d+') AS INT),
+    CAST(substring(lcb::text FROM '^\d+') AS INT),
+    CAST(substring(cb::text FROM '^\d+') AS INT),
+    CAST(substring(rcb::text FROM '^\d+') AS INT),
+    CAST(substring(rb::text FROM '^\d+') AS INT),
+    CAST(substring(gk::text FROM '^\d+') AS INT)
+FROM staging_fc26
+WHERE player_id IS NOT NULL;
+

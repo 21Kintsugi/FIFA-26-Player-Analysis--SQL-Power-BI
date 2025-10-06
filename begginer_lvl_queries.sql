@@ -1,4 +1,4 @@
--- EASY LEVEL QUERIES
+-- EASY LEVEL QUERIES --
 
 -- TOP 10 countries by Count of Players/Nationality:
 SELECT n.nationality_name,
@@ -19,7 +19,6 @@ ORDER BY COUNT(*) DESC
 LIMIT 10
 
 -- Tallest VS Shortest Player VS Heaviest Player VS Lightest Player:
-
 SELECT short_name,
     'Heaviest' AS category,
     weight_kg,
@@ -61,5 +60,3 @@ WHERE height_cm = (
     )
 ORDER BY
     weight_kg DESC
-
--- 

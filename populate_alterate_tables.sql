@@ -1,10 +1,27 @@
 -- Migrate the data from the original csv into the tables
-copy staging_fc26 FROM 'C:/CSV/FC_2026.csv' DELIMITER ',' CSV HEADER;
-
+COPY staging_fc26
+FROM 'C:/CSV/FC26_20250921.csv' DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
 -- Populate the players table
 INSERT INTO players (
-    player_id,
+        player_id,
+        short_name,
+        long_name,
+        dob,
+        age,
+        height_cm,
+        weight_kg,
+        player_positions,
+        overall,
+        potential,
+        preferred_foot,
+        weak_foot,
+        skill_moves,
+        international_reputation,
+        club_team_id,
+        nationality_id
+    )
+SELECT DISTINCT ON (player_id) player_id,
     short_name,
     long_name,
     dob,
@@ -20,58 +37,35 @@ INSERT INTO players (
     international_reputation,
     club_team_id,
     nationality_id
-)
-SELECT DISTINCT ON (player_id)
-    player_id,
-    short_name,
-    long_name,
-    dob,
-    age,
-    height_cm,
-    weight_kg,
-    player_positions,
-    overall,
-    potential,
-    preferred_foot,
-    weak_foot,
-    skill_moves,
-    international_reputation,
-    club_team_id,
-    nationality_id
-FROM 
-    staging_fc26
+FROM staging_fc26
 WHERE player_id IS NOT NULL;
 
 -- Populate the clubs table
 INSERT INTO clubs (
-    club_team_id,
+        club_team_id,
+        club_name,
+        league_id,
+        league_name,
+        league_level
+    )
+SELECT DISTINCT ON (club_team_id) club_team_id,
     club_name,
     league_id,
     league_name,
     league_level
-)
-SELECT DISTINCT ON (club_team_id)
-    club_team_id,
-    club_name,
-    league_id,
-    league_name,
-    league_level
-FROM
-    staging_fc26
+FROM staging_fc26
 WHERE club_team_id IS NOT NULL;
 
--- Polulate nationalities table
+-- Populate nationalities table
 INSERT INTO nationalities (
-    nationality_id,
+        nationality_id,
+        nationality_name,
+        nation_team_id
+    )
+SELECT DISTINCT ON (nationality_id) nationality_id,
     nationality_name,
     nation_team_id
-)
-SELECT DISTINCT ON (nationality_id)
-    nationality_id,
-    nationality_name,
-    nation_team_id
-FROM 
-    staging_fc26
+FROM staging_fc26
 WHERE nationality_id IS NOT NULL;
 
 -- Populate skills table with cleaned numeric values
@@ -118,32 +112,32 @@ INSERT INTO skills (
     goalkeeping_positioning,
     goalkeeping_reflexes,
     goalkeeping_speed,
-    ls, 
-    st, 
-    rs, 
-    lw, 
-    lf, 
-    cf, 
-    rf, 
+    ls,
+    st,
+    rs,
+    lw,
+    lf,
+    cf,
+    rf,
     rw,
-    lam, 
-    cam, 
-    ram, 
-    lm, 
-    lcm, 
-    cm, 
-    rcm, 
+    lam,
+    cam,
+    ram,
+    lm,
+    lcm,
+    cm,
+    rcm,
     rm,
-    lwb, 
-    ldm, 
-    cdm, 
-    rdm, 
-    rwb, 
-    lb, 
-    lcb, 
+    lwb,
+    ldm,
+    cdm,
+    rdm,
+    rwb,
+    lb,
+    lcb,
     cb,
-    rcb, 
-    rb, 
+    rcb,
+    rb,
     gk
 )
 SELECT DISTINCT ON (player_id)
@@ -218,5 +212,3 @@ SELECT DISTINCT ON (player_id)
     CAST(substring(gk::text FROM '^\d+') AS INT)
 FROM staging_fc26
 WHERE player_id IS NOT NULL;
-
-

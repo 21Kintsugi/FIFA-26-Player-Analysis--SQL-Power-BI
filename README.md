@@ -26,5 +26,5 @@ While populating the database tables, several challenges arose:
  - Complex Repetitive Queries: Populating the skills table involved many columns, making the SQL repetitive.  
 
 ##
-Working on beginer level queries:
-After populating all the data into the tables and ensuring the tables are clean, I started querying the datasets to find some interesting insights. I began with beginner-level queries where I explored information such as: countries with the most players in FC26, clubs with the most registered players, and the names of the tallest, heaviest, shortest, and lightest players in the game, along with their weight and height. In these queries, I used basic SQL concepts including SELECT, GROUP BY, ORDER BY, LIMIT, JOIN, WHERE, UNION, and even subqueries.
+Working on beginer level queries - beginner_lvl_queries.sql :
+After populating all the data into the tables and ensuring the tables are clean, I started querying the datasets to find some interesting insights. I began with beginner-level queries where I explored information such as: countries with the most players in FC26, clubs with the most registered players, and the names of the tallest, heaviest, shortest, and lightest players in the game, along with their weight and height. In these queries, I used basic SQL concepts including SELECT, GROUP BY, ORDER BY, LIMIT, JOIN, WHERE, UNION, OR, comparison operators and even subqueries.

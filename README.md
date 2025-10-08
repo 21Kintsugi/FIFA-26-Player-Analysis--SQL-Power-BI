@@ -34,3 +34,11 @@ After populating all the data into the tables and ensuring the tables are clean,
 ##
 Working on Intermediate-Level Queries – intermediate_lvl_queries.sql:
 After finishing the beginner-level queries, I continued exploring the FC26 dataset with intermediate-level queries to find more interesting insights. I looked at things like top young players in each league, clubs with the highest average potential, and players who outperform their club’s average. In these queries, I used intermediate SQL concepts such as joins across multiple tables, filtering and conditional logic (CASE, WHERE), Common Table Expressions (CTEs), window functions (ROW_NUMBER), calculated/derived columns, and combined multiple aggregations.
+
+##
+Creating Power BI visuals using the queries from the Beginner Queries file.
+I connected to the PostgreSQL database from Power BI, used the advanced SQL query option to load the data, and then created five different visuals based on five beginner-level queries. Below is a screenshot of all the PowerBI visuals:
+<img width="1661" height="930" alt="image" src="https://github.com/user-attachments/assets/89d9d4f7-1668-4ed5-9bc5-657efb2ef7e5" />
+
+
+

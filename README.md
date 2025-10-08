@@ -1,11 +1,11 @@
 # FIFA-26-Player-Analysis---SQL-Power-BI
 This project demonstrates my SQL and data analysis skills using the FIFA 26 (FC 26) player dataset.  The dataset includes detailed information about football players, their clubs, leagues, and stats. 
 
-START DATE: 10/2/2025
-DATABASE: PostgreSQL
-VISUALIZATION: POWER BI
-DATASET name: FC 26 (FIFA 26) Player Data
-DATASET creator: rovnez
+START DATE: 10/2/2025,
+DATABASE: PostgreSQL,
+VISUALIZATION: POWER BI,
+DATASET name: FC 26 (FIFA 26) Player Data,
+DATASET creator: rovnez,
 DATASET link: https://www.kaggle.com/datasets/rovnez/fc-26-fifa-26-player-data
 
 The goal of this project is to showcase the SQL skills I have acquired in my free time through learning from numerous free resources. I consider myself a solid beginner progressing into intermediate SQL. I selected this dataset because it aligns with my interest, football and, more importantly, it allows me to practice data analysis.

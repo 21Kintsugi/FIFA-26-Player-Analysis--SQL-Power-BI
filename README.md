@@ -2,11 +2,13 @@
 This project demonstrates my SQL and data analysis skills using the FIFA 26 (FC 26) player dataset.  The dataset includes detailed information about football players, their clubs, leagues, and stats. 
 
 START DATE: 10/2/2025
+DATABASE: PostgreSQL
+VISUALIZATION: POWER BI
 DATASET name: FC 26 (FIFA 26) Player Data
 DATASET creator: rovnez
 DATASET link: https://www.kaggle.com/datasets/rovnez/fc-26-fifa-26-player-data
 
-My goal with this project is to showcase the SQL skills I have acquired in my free time through learning from numerous free resources. I selected this dataset because it aligns with my interest, football and, more importantly, it allows me to practice data analysis.
+The goal of this project is to showcase the SQL skills I have acquired in my free time through learning from numerous free resources. I consider myself a solid beginner progressing into intermediate SQL. I selected this dataset because it aligns with my interest, football and, more importantly, it allows me to practice data analysis.
 By creating this project, I also aim to provide data insights for FIFA players, helping them understand the best players, clubs, and leagues based on statistics.
 
 ##
@@ -26,7 +28,7 @@ While populating the database tables, several challenges arose:
  - Complex Repetitive Queries: Populating the skills table involved many columns, making the SQL repetitive.  
 
 ##
-Working on beginer level queries - beginner_lvl_queries.sql:
+Working on beginner level queries - beginner_lvl_queries.sql:
 After populating all the data into the tables and ensuring the tables are clean, I started querying the datasets to find some interesting insights. I began with beginner-level queries where I explored information such as: countries with the most players in FC26, clubs with the most registered players, and the names of the tallest, heaviest, shortest, and lightest players in the game, along with their weight and height. In these queries, I used basic SQL concepts including SELECT, GROUP BY, ORDER BY, LIMIT, JOIN, WHERE, UNION, OR, comparison operators and even subqueries.
 
 ##

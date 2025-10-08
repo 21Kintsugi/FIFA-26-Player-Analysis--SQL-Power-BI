@@ -90,9 +90,12 @@ LIMIT 5
 -- Q6:Young players with the most growth potential:
 SELECT short_name,
     potential - overall AS growth_potential,
-    dob
-FROM players
+    dob,
+    c.club_name
+FROM players p
+    JOIN clubs c ON p.club_team_id = c.club_team_id
 WHERE potential - overall > 10
     AND age < 25
 ORDER BY growth_potential DESC
+
 

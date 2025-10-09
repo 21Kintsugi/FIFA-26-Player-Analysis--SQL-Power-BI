@@ -44,3 +44,8 @@ I connected to the PostgreSQL database from Power BI, used the advanced SQL quer
 Creating Power BI visuals using the tables from the database (no queries): (Top5_Leagues_Player_Analysis.pbix.pbix)
 In this section, I created Power BI dashboards using the raw data directly from the database tables, without relying on SQL queries. All filtering, aggregation, and selection were performed within Power BI itself. The project includes five dashboards that provide insights into Europe’s top five football leagues, showcasing rankings by total player market value, average monthly wage, overall player quality, key football attributes (defending, dribbling, pace, passing, and physicality), as well as the average height of players in each league.
 <img width="2109" height="1182" alt="image" src="https://github.com/user-attachments/assets/aba3d991-3852-4550-acc5-30de49063d06" />
+
+##
+CONCLUSION:
+The goal of this project was to test the SQL and Power BI skills I have acquired and put into practice the concepts I have learned. I can say that the goal was achieved. While this project may not be perfect, I am still satisfied with the results. This project allowed me to independently apply and strengthen my SQL and Power BI skills using the FIFA 26 dataset. I designed a relational database, wrote queries to explore players, clubs, and leagues, and created dashboards to visualize key metrics such as player value, wages, quality, attributes, and height.
+Now, onto harder stuff, I guess!

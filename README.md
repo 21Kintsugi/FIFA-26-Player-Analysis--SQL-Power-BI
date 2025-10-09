@@ -24,7 +24,7 @@ While populating the database tables, several challenges arose:
  - CSV Encoding and File Access: The original file used WIN1252 encoding, which caused errors in PostgreSQL. Moving the file to a simpler folder and saving it as UTF-8 resolved the issue.
  - Staging Table Usage: A staging_fc26 table was created to import the raw CSV first. This allowed us to clean, transform, and selectively populate the normalized tables without errors.
  - Primary Key and Duplicates: Some tables, like players and clubs, had duplicate rows that violated primary key constraints. Using DISTINCT ON in INSERT statements ensured only unique rows were inserted.
- - Data Type Mismatches: Certain columns contained non-numeric characters (e.g., “86+3”), which caused integer errors.I converted these columns to TEXT or cleaned the data to extract base numbers before inserting.
+ - Data Type Mismatches: Certain columns contained non-numeric characters (e.g., “86+3”), which caused integer errors. I converted these columns to TEXT.
  - Complex Repetitive Queries: Populating the skills table involved many columns, making the SQL repetitive.  
 
 ##

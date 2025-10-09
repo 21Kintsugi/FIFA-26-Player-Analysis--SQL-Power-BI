@@ -41,9 +41,6 @@ I connected to the PostgreSQL database from Power BI, used the advanced SQL quer
 <img width="1661" height="930" alt="image" src="https://github.com/user-attachments/assets/89d9d4f7-1668-4ed5-9bc5-657efb2ef7e5" />
 
 ##
-Creating Power BI visuals using the tables from the database (no queries): (Top_5_Leagues_Power_BI_Analysis.pbix)
+Creating Power BI visuals using the tables from the database (no queries): (Top5_Leagues_Player_Analysis.pbix.pbix)
 In this section, I created Power BI dashboards using the raw data directly from the database tables, without relying on SQL queries. All filtering, aggregation, and selection were performed within Power BI itself. The project includes five dashboards that provide insights into Europe’s top five football leagues, showcasing rankings by total player market value, average monthly wage, overall player quality, key football attributes (defending, dribbling, pace, passing, and physicality), as well as the average height of players in each league.
 <img width="2109" height="1182" alt="image" src="https://github.com/user-attachments/assets/aba3d991-3852-4550-acc5-30de49063d06" />
-
-
-

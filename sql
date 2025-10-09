@@ -1,1 +1,0 @@
-sql/beginner_lvl_queries.sql

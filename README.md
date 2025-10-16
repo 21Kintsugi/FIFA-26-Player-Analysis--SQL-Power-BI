@@ -28,16 +28,16 @@ While populating the database tables, several challenges arose:
  - Complex Repetitive Queries: Populating the skills table involved many columns, making the SQL repetitive.  
 
 ##
-Working on beginner level queries: (beginner_lvl_queries.sql)
-After populating all the data into the tables and ensuring the tables are clean, I started querying the datasets to find some interesting insights. I began with beginner-level queries where I explored information such as: countries with the most players in FC26, clubs with the most registered players, and the names of the tallest, heaviest, shortest, and lightest players in the game, along with their weight and height. In these queries, I used basic SQL concepts including SELECT, GROUP BY, ORDER BY, LIMIT, JOIN, WHERE, UNION, OR, comparison operators and even subqueries.
+Working on the first set of queries: (queries_set_1)
+After populating all the data into the tables and ensuring the tables are clean, I started querying the datasets to find some interesting insights. I began with basic queries where I explored information such as: countries with the most players in FC26, clubs with the most registered players, and the names of the tallest, heaviest, shortest, and lightest players in the game, along with their weight and height. In these queries, I used basic SQL concepts including SELECT, GROUP BY, ORDER BY, LIMIT, JOIN, WHERE, UNION, OR, comparison operators and even subqueries.
 
 ##
-Working on Intermediate-Level Queries: (intermediate_lvl_queries.sql)
-After finishing the beginner-level queries, I continued exploring the FC26 dataset with intermediate-level queries to find more interesting insights. I looked at things like top young players in each league, clubs with the highest average potential, and players who outperform their club’s average. In these queries, I used intermediate SQL concepts such as joins across multiple tables, filtering and conditional logic (CASE, WHERE), Common Table Expressions (CTEs), window functions (ROW_NUMBER), calculated/derived columns, and combined multiple aggregations.
+Working on the second set of queries: (queries_set_2)
+I continued exploring the FC26 dataset with a set of more advanced queries to find more interesting insights. I looked at things like top young players in each league, clubs with the highest average potential, and players who outperform their club’s average. In these queries, I used intermediate SQL concepts such as joins across multiple tables, filtering and conditional logic (CASE, WHERE), Common Table Expressions (CTEs), window functions (ROW_NUMBER), calculated/derived columns, and combined multiple aggregations.
 
 ##
-Creating Power BI visuals using the queries from the beginner queries file: (beginner_queries_visualization.pbix)
-I connected to the PostgreSQL database from Power BI, used the advanced SQL query option to load the data, and then created five different visuals based on five beginner-level queries. Below is a screenshot of all the PowerBI visuals:
+Creating Power BI visuals using the queries from the first set of queries: (queries_set_1_visualization.pbix)
+I connected to the PostgreSQL database from Power BI, used the advanced SQL query option to load the data, and then created five different visuals based on first set of queries. Below is a screenshot of all the PowerBI visuals:
 <img width="1661" height="930" alt="image" src="https://github.com/user-attachments/assets/89d9d4f7-1668-4ed5-9bc5-657efb2ef7e5" />
 
 ##
@@ -47,5 +47,5 @@ In this section, I created Power BI dashboards using the raw data directly from 
 
 ##
 CONCLUSION:
-The goal of this project was to test the SQL and Power BI skills I have acquired and put into practice the concepts I have learned. I can say that the goal was achieved. While this project may not be perfect, I am still satisfied with the results. This project allowed me to independently apply and strengthen my SQL and Power BI skills using the FIFA 26 dataset. I designed a relational database, wrote queries to explore players, clubs, and leagues, and created dashboards to visualize key metrics such as player value, wages, quality, attributes, and height.
-Now, onto harder stuff, I guess!
+The goal of this project was to test the SQL and Power BI skills I have acquired and put into practice the concepts I have learned. I can say that the goal was achieved. While this project may not be perfect or industry relevant, I am still satisfied with the results. This project allowed me to independently apply and strengthen my SQL and Power BI skills using the FIFA 26 dataset. I designed a relational database, wrote queries to explore players, clubs, and leagues, and created dashboards to visualize key metrics such as player value, wages, quality, attributes, and height.
+Now, onto harder stuff!

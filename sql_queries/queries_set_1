@@ -1,5 +1,3 @@
--- EASY LEVEL QUERIES --
-
 -- Q1:TOP 10 countries by Count of Players/Nationality:
 SELECT n.nationality_name,
     COUNT(*) AS player_count
@@ -97,5 +95,6 @@ FROM players p
 WHERE potential - overall > 10
     AND age < 25
 ORDER BY growth_potential DESC
+
 
 

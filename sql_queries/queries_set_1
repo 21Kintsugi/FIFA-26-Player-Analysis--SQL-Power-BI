@@ -95,6 +95,3 @@ FROM players p
 WHERE potential - overall > 10
     AND age < 25
 ORDER BY growth_potential DESC
-
-
-

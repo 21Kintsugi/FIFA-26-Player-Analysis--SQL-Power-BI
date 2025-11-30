@@ -116,7 +116,3 @@ GROUP BY c.club_name,
     c.league_name
 ORDER BY average_overall_skills DESC
 LIMIT 20
-
-
-    
-
